@@ -1,0 +1,437 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EE45F8522C5FB22300BE55C6 /* BlockuerScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE45F8512C5FB22300BE55C6 /* BlockuerScene.swift */; };
+		EE45F8542C5FC86D00BE55C6 /* Fredoka.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE45F8532C5FC86D00BE55C6 /* Fredoka.ttf */; };
+		EE45F8582C5FCB8500BE55C6 /* GameFieldData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE45F8572C5FCB8500BE55C6 /* GameFieldData.swift */; };
+		EE45F85A2C5FE3E100BE55C6 /* BlockuerGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE45F8592C5FE3E100BE55C6 /* BlockuerGameView.swift */; };
+		EE45F85C2C5FE4D900BE55C6 /* BlockuerGameWinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE45F85B2C5FE4D900BE55C6 /* BlockuerGameWinView.swift */; };
+		EE45F85E2C5FE5CF00BE55C6 /* BlockuerGameOverView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE45F85D2C5FE5CF00BE55C6 /* BlockuerGameOverView.swift */; };
+		EE45F8602C5FE67300BE55C6 /* BlockuerGamePauseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE45F85F2C5FE67300BE55C6 /* BlockuerGamePauseView.swift */; };
+		EEEDB5382C5D235500986E33 /* ZeusBlockuerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEDB5372C5D235500986E33 /* ZeusBlockuerApp.swift */; };
+		EEEDB53A2C5D235500986E33 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEEDB5392C5D235500986E33 /* ContentView.swift */; };
+		EEEDB53C2C5D235800986E33 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEEDB53B2C5D235800986E33 /* Assets.xcassets */; };
+		EEEDB53F2C5D235800986E33 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEEDB53E2C5D235800986E33 /* Preview Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EE45F8512C5FB22300BE55C6 /* BlockuerScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockuerScene.swift; sourceTree = "<group>"; };
+		EE45F8532C5FC86D00BE55C6 /* Fredoka.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fredoka.ttf; sourceTree = "<group>"; };
+		EE45F8552C5FC87F00BE55C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		EE45F8572C5FCB8500BE55C6 /* GameFieldData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameFieldData.swift; sourceTree = "<group>"; };
+		EE45F8592C5FE3E100BE55C6 /* BlockuerGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockuerGameView.swift; sourceTree = "<group>"; };
+		EE45F85B2C5FE4D900BE55C6 /* BlockuerGameWinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockuerGameWinView.swift; sourceTree = "<group>"; };
+		EE45F85D2C5FE5CF00BE55C6 /* BlockuerGameOverView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockuerGameOverView.swift; sourceTree = "<group>"; };
+		EE45F85F2C5FE67300BE55C6 /* BlockuerGamePauseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlockuerGamePauseView.swift; sourceTree = "<group>"; };
+		EEEDB5342C5D235500986E33 /* ZeusBlockuer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZeusBlockuer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EEEDB5372C5D235500986E33 /* ZeusBlockuerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeusBlockuerApp.swift; sourceTree = "<group>"; };
+		EEEDB5392C5D235500986E33 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EEEDB53B2C5D235800986E33 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EEEDB53E2C5D235800986E33 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EEEDB5312C5D235500986E33 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EE45F84B2C5FB1F500BE55C6 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				EE45F84D2C5FB1FC00BE55C6 /* Rewards */,
+				EE45F84C2C5FB1F900BE55C6 /* Game */,
+				EEEDB5392C5D235500986E33 /* ContentView.swift */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		EE45F84C2C5FB1F900BE55C6 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				EE45F8562C5FCB8000BE55C6 /* Data */,
+				EE45F8502C5FB21200BE55C6 /* States */,
+				EE45F84F2C5FB20E00BE55C6 /* Scene */,
+				EE45F84E2C5FB20B00BE55C6 /* View */,
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		EE45F84D2C5FB1FC00BE55C6 /* Rewards */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Rewards;
+			sourceTree = "<group>";
+		};
+		EE45F84E2C5FB20B00BE55C6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EE45F8592C5FE3E100BE55C6 /* BlockuerGameView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EE45F84F2C5FB20E00BE55C6 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				EE45F8512C5FB22300BE55C6 /* BlockuerScene.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		EE45F8502C5FB21200BE55C6 /* States */ = {
+			isa = PBXGroup;
+			children = (
+				EE45F85B2C5FE4D900BE55C6 /* BlockuerGameWinView.swift */,
+				EE45F85D2C5FE5CF00BE55C6 /* BlockuerGameOverView.swift */,
+				EE45F85F2C5FE67300BE55C6 /* BlockuerGamePauseView.swift */,
+			);
+			path = States;
+			sourceTree = "<group>";
+		};
+		EE45F8562C5FCB8000BE55C6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EE45F8572C5FCB8500BE55C6 /* GameFieldData.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		EEEDB52B2C5D235500986E33 = {
+			isa = PBXGroup;
+			children = (
+				EEEDB5362C5D235500986E33 /* ZeusBlockuer */,
+				EEEDB5352C5D235500986E33 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EEEDB5352C5D235500986E33 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EEEDB5342C5D235500986E33 /* ZeusBlockuer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EEEDB5362C5D235500986E33 /* ZeusBlockuer */ = {
+			isa = PBXGroup;
+			children = (
+				EE45F8552C5FC87F00BE55C6 /* Info.plist */,
+				EE45F8532C5FC86D00BE55C6 /* Fredoka.ttf */,
+				EE45F84B2C5FB1F500BE55C6 /* Content */,
+				EEEDB5372C5D235500986E33 /* ZeusBlockuerApp.swift */,
+				EEEDB53B2C5D235800986E33 /* Assets.xcassets */,
+				EEEDB53D2C5D235800986E33 /* Preview Content */,
+			);
+			path = ZeusBlockuer;
+			sourceTree = "<group>";
+		};
+		EEEDB53D2C5D235800986E33 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				EEEDB53E2C5D235800986E33 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EEEDB5332C5D235500986E33 /* ZeusBlockuer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EEEDB5422C5D235800986E33 /* Build configuration list for PBXNativeTarget "ZeusBlockuer" */;
+			buildPhases = (
+				EEEDB5302C5D235500986E33 /* Sources */,
+				EEEDB5312C5D235500986E33 /* Frameworks */,
+				EEEDB5322C5D235500986E33 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZeusBlockuer;
+			productName = ZeusBlockuer;
+			productReference = EEEDB5342C5D235500986E33 /* ZeusBlockuer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EEEDB52C2C5D235500986E33 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1510;
+				LastUpgradeCheck = 1510;
+				TargetAttributes = {
+					EEEDB5332C5D235500986E33 = {
+						CreatedOnToolsVersion = 15.1;
+					};
+				};
+			};
+			buildConfigurationList = EEEDB52F2C5D235500986E33 /* Build configuration list for PBXProject "ZeusBlockuer" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EEEDB52B2C5D235500986E33;
+			productRefGroup = EEEDB5352C5D235500986E33 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EEEDB5332C5D235500986E33 /* ZeusBlockuer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EEEDB5322C5D235500986E33 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EEEDB53F2C5D235800986E33 /* Preview Assets.xcassets in Resources */,
+				EE45F8542C5FC86D00BE55C6 /* Fredoka.ttf in Resources */,
+				EEEDB53C2C5D235800986E33 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EEEDB5302C5D235500986E33 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE45F8602C5FE67300BE55C6 /* BlockuerGamePauseView.swift in Sources */,
+				EEEDB53A2C5D235500986E33 /* ContentView.swift in Sources */,
+				EE45F85E2C5FE5CF00BE55C6 /* BlockuerGameOverView.swift in Sources */,
+				EEEDB5382C5D235500986E33 /* ZeusBlockuerApp.swift in Sources */,
+				EE45F85C2C5FE4D900BE55C6 /* BlockuerGameWinView.swift in Sources */,
+				EE45F85A2C5FE3E100BE55C6 /* BlockuerGameView.swift in Sources */,
+				EE45F8582C5FCB8500BE55C6 /* GameFieldData.swift in Sources */,
+				EE45F8522C5FB22300BE55C6 /* BlockuerScene.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		EEEDB5402C5D235800986E33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EEEDB5412C5D235800986E33 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EEEDB5432C5D235800986E33 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ZeusBlockuer/Preview Content\"";
+				DEVELOPMENT_TEAM = 4RSA42DBKQ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ZeusBlockuer/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gamenation.ZeusBlockuer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EEEDB5442C5D235800986E33 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ZeusBlockuer/Preview Content\"";
+				DEVELOPMENT_TEAM = 4RSA42DBKQ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ZeusBlockuer/Info.plist;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.gamenation.ZeusBlockuer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EEEDB52F2C5D235500986E33 /* Build configuration list for PBXProject "ZeusBlockuer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEEDB5402C5D235800986E33 /* Debug */,
+				EEEDB5412C5D235800986E33 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EEEDB5422C5D235800986E33 /* Build configuration list for PBXNativeTarget "ZeusBlockuer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EEEDB5432C5D235800986E33 /* Debug */,
+				EEEDB5442C5D235800986E33 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EEEDB52C2C5D235500986E33 /* Project object */;
+}
