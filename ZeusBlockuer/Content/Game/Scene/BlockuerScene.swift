@@ -51,6 +51,7 @@ class BlockuerScene: SKScene {
     
 //    private var backLevelBtn: SKSpriteNode = SKSpriteNode(imageNamed: "arrow_left")
 //    private var nextLevelBtn: SKSpriteNode = SKSpriteNode(imageNamed: "arrow_right")
+    var levelText = SKLabelNode(text: "")
     private var levelLabel: SKSpriteNode {
         get {
             let levelNode = SKSpriteNode()
@@ -58,7 +59,7 @@ class BlockuerScene: SKScene {
             levelBack.size = CGSize(width: 330, height: 70)
             levelNode.addChild(levelBack)
             
-            let levelText = SKLabelNode(text: "\(level)")
+            levelText = .init(text: "\(level)")
             levelText.fontName = "Fredoka-Bold"
             levelText.fontSize = 42
             levelText.fontColor = .white
@@ -162,7 +163,18 @@ class BlockuerScene: SKScene {
         addBlocks(for: gameFieldData)
     }
     
-    func addBlocks(for data: GameFieldData) {
+    private var blockNodes = [SKNode]()
+    private var starsNode = [SKNode]()
+    
+    func addBlocks(for data: GameFieldData, extraLevel: Bool = false) {
+        blockPositions = [:]
+        for blockNode in blockNodes {
+            blockNode.run(SKAction.sequence([SKAction.fadeOut(withDuration: 0.3), SKAction.removeFromParent()]))
+        }
+        for star in starsNode {
+            star.run(SKAction.sequence([SKAction.fadeOut(withDuration: 0.3), SKAction.removeFromParent()]))
+        }
+        
         let blockSize = CGSize(width: 150, height: 130)
         let spacing: CGFloat = 15  // Основной отступ между блоками
 
@@ -201,11 +213,19 @@ class BlockuerScene: SKScene {
                 if blockColor == .blue {
                     blockSrc = "blue_block"
                 }
+                if extraLevel {
+                    blockSrc = "hades_red"
+                    if blockColor == .blue {
+                        blockSrc = "zeus_blue"
+                    }
+                    if blockColor == .stone {
+                        blockSrc = "stone"
+                    }
+                }
                 let block = SKSpriteNode(imageNamed: blockSrc)
                 
                 let xPosition: CGFloat
                 let yPosition: CGFloat
-                
                 
                 switch data.blockOrientation {
                 case .horizontal:
@@ -221,8 +241,9 @@ class BlockuerScene: SKScene {
                 block.size = blockSize
                 block.zPosition = 1
                 // block.name = blockSrc
-                block.name = "\(rowIndex)-\(colIndex)"
+                block.name = "\(rowIndex)*\(colIndex)"
                 addChild(block)
+                blockNodes.append(block)
                 
                 blockPositions[block.name!] = blockColor
                 
@@ -264,8 +285,10 @@ class BlockuerScene: SKScene {
             
             addChild(starColorFirst)
             addChild(starColorLast)
-            blockPositions["0-(-1))"] = .blue
-            blockPositions["0-4"] = .blue
+            starsNode.append(starColorFirst)
+            starsNode.append(starColorLast)
+            blockPositions["0*(-1))"] = .blue
+            blockPositions["0*4"] = .blue
             
             let secondStarColorFirst = SKSpriteNode(imageNamed: "star_orange")
             secondStarColorFirst.size = CGSize(width: 52, height: 42)
@@ -286,10 +309,12 @@ class BlockuerScene: SKScene {
             } else {
                 secondStarColorFirst2.position.y += blockSize.height / 2 + 40
             }
-            blockPositions["1-(-1))"] = .orange
-            blockPositions["1-4"] = .orange
+            blockPositions["1*(-1))"] = .orange
+            blockPositions["1*4"] = .orange
             
             addChild(secondStarColorFirst2)
+            starsNode.append(secondStarColorFirst)
+            starsNode.append(secondStarColorFirst2)
         } else {
             let starColorFirst = SKSpriteNode(imageNamed: "star_orange")
             starColorFirst.size = CGSize(width: 52, height: 42)
@@ -312,6 +337,8 @@ class BlockuerScene: SKScene {
             
             addChild(starColorFirst)
             addChild(starColorLast)
+            starsNode.append(starColorFirst)
+            starsNode.append(starColorLast)
             
             let secondStarColorFirst = SKSpriteNode(imageNamed: "star_blue")
             secondStarColorFirst.size = CGSize(width: 52, height: 42)
@@ -321,8 +348,8 @@ class BlockuerScene: SKScene {
             } else {
                 secondStarColorFirst.position.y -= blockSize.height / 2 + 40
             }
-            blockPositions["0-(-1))"] = .orange
-            blockPositions["0-4"] = .orange
+            blockPositions["0*(-1))"] = .orange
+            blockPositions["0*4"] = .orange
             
             addChild(secondStarColorFirst)
             
@@ -334,10 +361,12 @@ class BlockuerScene: SKScene {
             } else {
                 secondStarColorFirst2.position.y += blockSize.height / 2 + 40
             }
-            blockPositions["1-(-1))"] = .blue
-            blockPositions["1-4"] = .blue
+            blockPositions["1*(-1))"] = .blue
+            blockPositions["1*4"] = .blue
             
             addChild(secondStarColorFirst2)
+            starsNode.append(secondStarColorFirst)
+            starsNode.append(secondStarColorFirst2)
         }
     }
     
@@ -384,10 +413,17 @@ class BlockuerScene: SKScene {
             let tempColor = blockPositions[nodeName]
             blockPositions[nodeName] = blockPositions[targetName]
             blockPositions[targetName] = tempColor
+            let tempNodeName = node.name
+            node.name = targetName
+            targetNode.name = tempNodeName
             
             // Проверка линий после перемещения
             if checkAllBlocksInLinesAreSameColor() {
-                NotificationCenter.default.post(name: Notification.Name("all_matched"), object: nil)
+                if level % 3 == 0 {
+                    createExtraLevel()
+                } else {
+                    NotificationCenter.default.post(name: Notification.Name("all_matched"), object: nil)
+                }
             }
         } else {
             node.position = originalPosition
@@ -397,26 +433,50 @@ class BlockuerScene: SKScene {
         self.originalPosition = nil
     }
     
+    private var extraLevel = false
+    private var extraLevelData: GameFieldData? = nil
+    
     func checkAllBlocksInLinesAreSameColor() -> Bool {
         var group: [String: [BlockColor]] = [:]
         
         for (key, value) in blockPositions {
-            let comp = key.components(separatedBy: "-")
+            let comp = key.components(separatedBy: "*")
             let keyColumn = comp[0]
             let line = comp[1]
             if group[keyColumn] == nil {
                 group[keyColumn] = []
             }
-            group[keyColumn]!.append(value)
+            if extraLevel {
+                if !line.contains("(") && !line.contains("-") && !line.contains("4") {
+                    group[keyColumn]!.append(value)
+                }
+            } else {
+                group[keyColumn]!.append(value)
+            }
         }
         
-        for (row, colors) in group {
-            var prevColor: BlockColor? = nil
-            for color in colors {
-                if prevColor != nil && prevColor != color {
-                    return false
+        if extraLevel {
+            if let gameData = extraLevelData?.correctPositions {
+                for (row, _) in group {
+                    let rowLine = Int(row)!
+                    let rowColors = group[row]!
+                    let extraLevelDataLine = gameData[rowLine]
+                    for rowColor in rowColors {
+                        if !extraLevelDataLine.contains(rowColor) {
+                            return false
+                        }
+                    }
                 }
-                prevColor = color
+            }
+        } else {
+            for (_, colors) in group {
+                var prevColor: BlockColor? = nil
+                for color in colors {
+                    if prevColor != nil && prevColor != color {
+                        return false
+                    }
+                    prevColor = color
+                }
             }
         }
         
@@ -426,6 +486,13 @@ class BlockuerScene: SKScene {
     func checkAllElementsEqual<T: Equatable>(_ elements: [T]) -> Bool {
         guard let firstElement = elements.first else { return true }
         return !elements.contains { $0 != firstElement }
+    }
+    
+    private func createExtraLevel() {
+        extraLevel = true
+        extraLevelData = extras[Int.random(in: 0..<extras.count)]
+        addBlocks(for: extraLevelData!, extraLevel: true)
+        levelText.text = "extra"
     }
     
 }

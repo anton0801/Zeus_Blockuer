@@ -5,10 +5,11 @@ struct GameFieldData {
     var blockOrientation: BlockOrientaiton
     var colorFirst: BlockColor
     var initialPositions: [[BlockColor]]
+    var correctPositions: [[BlockColor]]? = nil
 }
 
 enum BlockColor {
-    case blue, orange
+    case blue, orange, stone
 }
 
 enum BlockOrientaiton {
@@ -36,4 +37,23 @@ let gameFieldDataItems = [
     GameFieldData(countBlocks: 4, blockOrientation: .horizontal, colorFirst: .blue, initialPositions: [
         [.orange, .orange], [.blue, .orange]
     ]),
+]
+
+let extras = [
+    GameFieldData(countBlocks: 6, blockOrientation: .horizontal, colorFirst: .blue, initialPositions: [
+        [.blue, .stone, .orange],
+        [.blue, .blue, .orange]
+    ], correctPositions: [
+        [.blue, .stone, .blue],
+        [.orange, .blue, .orange]
+    ]),
+//    GameFieldData(countBlocks: 6, blockOrientation: .vertical, colorFirst: .orange, initialPositions: [
+//        [.orange, .blue],
+//        [.orange, .stone],
+//        [.orange, .orange]
+//    ], correctPositions: [
+//        [.orange, .orange],
+//        [.blue, .stone],
+//        [.orange, .orange]
+//    ])
 ]
